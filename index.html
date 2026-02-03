@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALORA – Voice Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span class="ai-bars"><span></span><span></span><span></span></span>
+      ALORA
+    </div>
+    <nav>
+      <a href="index.html" class="active">About us</a>
+      <a href="xususiyyetler.html">Features</a>
+      <a href="qiymetler.html">Prices</a>
+      <a href="komek.html">Help</a>
+    </nav>
+    <button class="btn">Free Demo ▶</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="home-page-1.png" alt="Family and AI assistant" />
+      <div class="ai-bubble">
+        <span class="ai-bars"><span></span><span></span><span></span></span>
+        AI is listening…<br />
+        <strong>"I forgot where I was."</strong>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>
+        Voice Assistant.<br />
+        Real Security.<br />
+        Comfort for your family.
+        <span class="speaker">🔊</span>
+      </h1>
+      <p>
+        AI-based voice guidance and real-time monitoring system for Alzheimer's patients
+      </p>
+      <div class="hero-actions">
+        <button class="btn">Request a Free Demo ▶</button>
+        <div class="play">▶</div>
+        <span style="color:#6b7280;font-size:14px">HOW DOES IT WORK?</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>500+</h3>
+          <p>Family Use</p>
+        </div>
+        <div class="stat">
+          <h3>62%</h3>
+          <p>Stress Reduction</p>
+        </div>
+        <div class="stat">
+          <h3>24/7</h3>
+          <p>AI Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section class="how-it-works">
+    <div class="how-header">
+      <span class="badge">LIVE DEMO</span>
+      <h2>How Voice AI Assistant Works</h2>
+      <p>See how ALORA helps patients in real-world scenarios</p>
+    </div>
+
+    <div class="how-layout">
+      <div class="how-menu">
+        <div class="how-item active">
+          <span>📍</span>
+          <div>
+            <strong>Location Redirection</strong>
+            <small>4 messages</small>
+          </div>
+        </div>
+        <div class="how-item">
+          <span>💊</span>
+          <div>
+            <strong>Medication Reminder</strong>
+            <small>4 messages</small>
+          </div>
+        </div>
+        <div class="how-item">
+          <span>⏰</span>
+          <div>
+            <strong>Daily Routine</strong>
+            <small>4 messages</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-chat">
+        <div class="chat-header">
+          <span class="dot"></span>
+          <div>
+            <strong>ALORA AI Assistant</strong>
+            <small>Active and listening</small>
+          </div>
+          <span class="latency">Response time: ~2 seconds</span>
+        </div>
+
+        <div class="chat-body">
+          <div class="msg user">I forgot where I was. <span>14:32</span></div>
+          <div class="msg ai">You are at home, Baku city, Yasamal district. It is now 2:32 AM. <span>14:32</span></div>
+          <div class="msg user">Where are my family members? <span>14:33</span></div>
+          <div class="msg ai">Your son is at work and will be home at 6:00 PM. Your daughter Leyla will call you soon. <span>14:33</span></div>
+        </div>
+
+        <div class="chat-footer">
+          <div class="listening"></div>
+          <span>Voice input enabled...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-cta">
+      <button class="btn">Request a demo</button>
+    </div>
+  </section>
+
+  <style>
+    
+  </style>
+
+  <section class="safety">
+    <span class="badge" style="display:block;text-align:center">REAL-TIME SECURITY</span>
+    <h2>Keep an eye on your family at all times</h2>
+    <p>GPS Tracking, Safe Zone Alerts, and Emergency Notification System</p>
+
+    <div class="safety-grid">
+      <div class="card">
+        <strong>Live Location Tracking</strong> <span style="color:var(--green)">• Active</span>
+        <div class="map">
+          <div class="pin">📍</div>
+          <div>Current Location<br><small>Baku, Yasamal • 5 min ago</small></div>
+        </div>
+      </div>
+      <div class="stats-mini">
+        <div class="mini"><strong>5 min ago</strong><br><small>Last update</small></div>
+        <div class="mini"><strong>500m</strong><br><small>Safe Zone</small></div>
+        <div class="mini"><strong>30 sec</strong><br><small>Emergency response</small></div>
+      </div>
+    </div>
+
+    <div class="danger">
+      <div class="card">
+        <strong>Emergency Notification System</strong>
+        <ul>
+          <li>✔ Automatic location sharing</li>
+          <li>✔ Multiple contact notification</li>
+          <li>✔ 30 seconds response time</li>
+        </ul>
+      </div>
+      <div class="sos" id="sosBtn">EMERGENCY</div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast">🚨 Notification sent</div>
+
+
+  <section class="testimonials">
+    <span class="badge" style="display:block;text-align:center">WHAT ALORA SAYS</span>
+    <h2>Real People, Real Results</h2>
+    <p class="subtitle">500+ families' experiences with ALORA</p>
+  
+    <div class="testimonial-grid">
+      <!-- Card 1 -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          “There have been zero missing incidents in three months.
+            ALORA calms down when she hears my mother’s voice.
+            I can finally sleep peacefully at night.”
+        </p>
+        <div class="meta">
+          <span class="tag">0 events</span>
+          <span class="tag muted">in 3 months</span>
+        </div>
+        <div class="author">
+          <img src="https://i.pravatar.cc/80?img=47" alt="">
+          <div>
+            <strong>Leyla Hasanova</strong>
+            <small>58 years old, Baku</small>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          “My father's medication is no longer a problem.
+          AI reminders are so effective that
+          never forgets.”
+        </p>
+        <div class="meta">
+          <span class="tag">98%</span>
+          <span class="tag muted">success rate</span>
+        </div>
+        <div class="author">
+          <img src="https://i.pravatar.cc/80?img=12" alt="">
+          <div>
+            <strong>Rashad Mammadov</strong>
+            <small>62 years old, Ganja</small>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Card 3 -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          “Knowing where my mom is while I'm at work
+            is a huge comfort. Real-time notifications
+            make life so much easier.”
+        </p>
+        <div class="meta">
+          <span class="tag">24/7</span>
+          <span class="tag muted">tracking</span>
+        </div>
+        <div class="author">
+          <img src="https://i.pravatar.cc/80?img=32" alt="">
+          <div>
+            <strong>Sabina Guliyeva</strong>
+            <small>45 years old, Sumgayit</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="testimonial-cta">
+      <button class="btn">▶ Watch video reviews</button>
+    </div>
+  
+    <div class="testimonial-stats">
+      <div><strong>500+</strong><span>Family uses</span></div>
+      <div><strong>4.9/5</strong><span>Customer rating</span></div>
+      <div><strong>24/7</strong><span>Support service</span></div>
+    </div>
+  </section>
+  
+
+  <section class="final-cta">
+    <div class="cta-content">
+      <div class="cta-icon">🤍</div>
+  
+      <h2>
+        Your Family with ALORA<br>
+        Ensure Your Safety
+      </h2>
+  
+      <p>
+        14-day free trial. No credit card required.
+        Cancel anytime.
+      </p>
+  
+      <div class="cta-actions">
+        <button class="btn btn-light">
+          Request a Free Demo →
+        </button>
+        <button class="btn btn-outline">
+          See prices
+        </button>
+      </div>
+  
+      <div class="cta-trust">
+        <span>🔒 ISO 27001 Certified</span>
+        <span>🏦 Bank Level Security</span>
+        <span>🩺 HIPAA Compliant</span>
+      </div>
+    </div>
+  </section>
+  
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+  
+      <!-- Left -->
+      <div class="footer-left">
+        <div class="footer-logo">
+          <div class="logo-mark"></div>
+          <strong>ALORA</strong>
+        </div>
+        <span class="copyright">
+          © 2026 ALORA. All rights reserved.
+        </span>
+      </div>
+  
+      <!-- Center -->
+      <nav class="footer-nav">
+        <a href="#">About us</a>
+        <a href="#">Features</a>
+        <a href="#">Prices</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Conditions</a>
+      </nav>
+  
+      <!-- Right -->
+      <div class="footer-social">
+        <a href="#" aria-label="Help">❔</a>
+        <a href="#" aria-label="Support">💬</a>
+        <a href="#" aria-label="Info">ℹ️</a>
+        <a href="#" aria-label="Settings">⚙️</a>
+      </div>
+  
+    </div>
+  </footer>
+  
+
+
+  <script>
+    const sos = document.getElementById('sosBtn');
+    const toast = document.getElementById('toast');
+    sos.addEventListener('click', () => {
+      sos.classList.add('pulse');
+      toast.classList.add('show');
+      setTimeout(() => sos.classList.remove('pulse'), 1500);
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  </script>
+
+</body>
+</html>

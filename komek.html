@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <title>Help | ALORA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    /* SECTION */
+.control-section{
+  max-width:1200px;
+  margin:120px auto;
+  text-align:center;
+}
+
+.section-tag{
+  font-size:12px;
+  letter-spacing:1px;
+  color:#00a870;
+  font-weight:700;
+}
+
+.control-section h1{
+  font-size:38px;
+  margin:14px 0;
+}
+
+.section-subtitle{
+  color:#6b7280;
+  font-size:15px;
+  margin-bottom:60px;
+}
+
+/* LAYOUT */
+.control-layout{
+  display:grid;
+  grid-template-columns:1fr 1.6fr;
+  gap:40px;
+  align-items:start;
+}
+
+/* LEFT STATS */
+.control-stats{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.stat-card{
+  position:relative;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  transition:.25s ease;
+}
+
+.stat-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,.08);
+}
+
+.stat-icon{
+  font-size:20px;
+}
+
+.stat-card strong{
+  font-size:26px;
+  display:block;
+}
+
+.stat-card span{
+  font-size:13px;
+  color:#6b7280;
+}
+
+.stat-up{
+  position:absolute;
+  top:16px;
+  right:18px;
+  font-size:12px;
+  color:#00a870;
+}
+
+.stat-down{
+  position:absolute;
+  top:16px;
+  right:18px;
+  font-size:12px;
+  color:#ef4444;
+}
+
+/* DASHBOARD */
+.dashboard-box{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  padding:24px;
+  transition:.3s ease;
+}
+
+.dashboard-box:hover{
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.dashboard-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.live-dot{
+  font-size:12px;
+  color:#00a870;
+}
+
+.dashboard-preview{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.dashboard-preview img{
+  width:100%;
+  display:block;
+}
+
+.last-active{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#fff;
+  padding:6px 12px;
+  font-size:12px;
+  border-radius:20px;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
+.system-status{
+  position:absolute;
+  bottom:14px;
+  right:14px;
+  background:#e7f9f1;
+  color:#00a870;
+  padding:6px 14px;
+  font-size:12px;
+  border-radius:20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .control-layout{
+    grid-template-columns:1fr;
+  }
+
+  .control-section h1{
+    font-size:30px;
+  }
+}
+
+
+.activity-table-box{
+  max-width:720px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:24px;
+}
+
+.activity-title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+/* TABLE */
+.activity-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+
+.activity-table th{
+  text-align:left;
+  color:#6b7280;
+  font-weight:600;
+  padding:12px 10px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.activity-table td{
+  padding:14px 10px;
+  border-bottom:1px dashed #e5e7eb;
+}
+
+.activity-table tr:hover{
+  background:#f9fafb;
+}
+
+/* ICONS */
+.icon{
+  margin-right:8px;
+  font-size:16px;
+}
+
+/* STATUS */
+.status{
+  font-weight:600;
+  font-size:13px;
+}
+
+.status.done{
+  color:#16a34a;
+}
+
+.status.pending{
+  color:#f59e0b;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .activity-table th:nth-child(2),
+  .activity-table td:nth-child(2){
+    display:none;
+  }
+}
+
+
+.explore-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 28px;
+  border-radius:999px;
+  border:2px solid #00a870;
+  color:#00a870;
+  font-weight:600;
+  transition:.25s ease;
+}
+
+.explore-btn:hover{
+  background:#00a870;
+  color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,168,112,.25);
+}
+
+.activity-action{
+  margin-top:28px;
+  text-align:center;
+  margin-bottom: 80px;
+}
+.explore-btn{
+  text-decoration: none;   /* ALTI XƏTTİ SİLİR */
+}
+
+</style>
+<body>
+
+
+    <header>
+        <div class="logo">
+          <span class="ai-bars"><span></span><span></span><span></span></span>
+          ALORA
+        </div>
+        <nav>
+          <a href="index.html">About us</a>
+          <a href="xususiyyetler.html">Features</a>
+          <a href="qiymetler.html">Prices</a>
+          <a href="komek.html"  class="active">Help</a>
+        </nav>
+        <button class="btn">Free Demo ▶</button>
+      </header>
+<section class="control-section">
+
+  <span class="section-tag">Caregiver Dashboard</span>
+  <h1>Control Everything from a Single Dashboard</h1>
+  <p class="section-subtitle">
+    Real-Time Insights and Smart Activity Monitoring
+  </p>
+
+  <div class="control-layout">
+
+    <!-- LEFT STATS -->
+    <div class="control-stats">
+
+      <div class="stat-card">
+        <div class="stat-icon">💬</div>
+        <div>
+          <strong>47</strong>
+          <span>Daily Voice Interaction</span>
+        </div>
+        <em class="stat-up">+12%</em>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">💊</div>
+        <div>
+          <strong>98%</strong>
+          <span>Medication Reminder Success Rate</span>
+        </div>
+        <em class="stat-up">+5%</em>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">❤️</div>
+        <div>
+          <strong>62%</strong>
+          <span>Caregiver Stress Reduction</span>
+        </div>
+        <em class="stat-down">-38%</em>
+      </div>
+
+    </div>
+
+    <!-- RIGHT DASHBOARD -->
+    <div class="dashboard-box">
+      <div class="dashboard-header">
+        <strong>Live Dashboard</strong>
+        <span class="live-dot">● Real time updates</span>
+      </div>
+
+      <div class="dashboard-preview">
+        <span class="last-active">Last activity: 2 min ago</span>
+
+        <img src="komek-img.png" alt="ALORA Dashboard">
+
+        <span class="system-status">● The system works</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="activity-table-box">
+    <h3 class="activity-title">Recent Activities</h3>
+  
+    <table class="activity-table">
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="icon voice">🔊</span>
+            Location redirection request
+          </td>
+          <td>14:32</td>
+          <td><span class="status done">✓ Completed</span></td>
+        </tr>
+  
+        <tr>
+          <td>
+            <span class="icon pill">💊</span>
+            Medication reminder sent
+          </td>
+          <td>15:00</td>
+          <td><span class="status done">✓ Completed</span></td>
+        </tr>
+  
+        <tr>
+          <td>
+            <span class="icon time">⏰</span>
+            Lunch time reminder
+          </td>
+          <td>16:45</td>
+          <td><span class="status pending">⏳ He waits</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="activity-action">
+    <a href="#" class="explore-btn">Explore the panel</a>
+  </div>
+  
+
+  <section class="final-cta">
+    <div class="cta-content">
+      <div class="cta-icon">🤍</div>
+  
+      <h2>
+        Your Family with ALORA<br>
+        Ensure Your Safety
+      </h2>
+  
+      <p>
+        14-day free trial. No credit card required.
+        Cancel anytime.
+      </p>
+  
+      <div class="cta-actions">
+        <button class="btn btn-light">
+          Request a Free Demo →
+        </button>
+        <button class="btn btn-outline">
+          See prices
+        </button>
+      </div>
+  
+      <div class="cta-trust">
+        <span>🔒 ISO 27001 Certified</span>
+        <span>🏦 Bank Level Security</span>
+        <span>🩺 HIPAA Compliant</span>
+      </div>
+    </div>
+  </section>
+  
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+  
+      <!-- Left -->
+      <div class="footer-left">
+        <div class="footer-logo">
+          <div class="logo-mark"></div>
+          <strong>ALORA</strong>
+        </div>
+        <span class="copyright">
+          © 2026 ALORA. All rights reserved.
+        </span>
+      </div>
+  
+      <!-- Center -->
+      <nav class="footer-nav">
+        <a href="#">About us</a>
+        <a href="#">Features</a>
+        <a href="#">Prices</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Conditions</a>
+      </nav>
+  
+      <!-- Right -->
+      <div class="footer-social">
+        <a href="#" aria-label="Help">❔</a>
+        <a href="#" aria-label="Support">💬</a>
+        <a href="#" aria-label="Info">ℹ️</a>
+        <a href="#" aria-label="Settings">⚙️</a>
+      </div>
+  
+    </div>
+  </footer>
+</body>
+</html>

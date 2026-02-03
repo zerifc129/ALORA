@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ALORA – Prices</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* =========================
+   PRICING PAGE
+========================= */
+
+.pricing-hero{
+  text-align:center;
+  padding:90px 20px 60px;
+}
+
+.pricing-hero span{
+  color:var(--green);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+}
+
+.pricing-hero h1{
+  font-size:clamp(36px,5vw,56px);
+  margin:16px 0;
+  font-weight:900;
+}
+
+.pricing-hero p{
+  max-width:620px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.pricing-container{
+  max-width:1200px;
+  margin:0 auto 120px;
+  padding:0 20px;
+}
+
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.price-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:24px;
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  transition:.35s ease;
+  position:relative;
+}
+
+.price-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(0,0,0,.08);
+  border-color:var(--green);
+}
+
+.price-card.popular{
+  border:2px solid var(--green);
+  box-shadow:0 30px 70px rgba(0,168,112,.18);
+}
+
+.badge-popular{
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--green);
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 14px;
+  border-radius:999px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.price-title{
+  font-size:20px;
+  font-weight:700;
+}
+
+.price-desc{
+  font-size:13px;
+  color:var(--muted);
+  margin:6px 0 22px;
+}
+
+.price{
+  font-size:44px;
+  font-weight:900;
+  margin-bottom:6px;
+}
+
+.price small{
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted);
+}
+
+.features{
+  list-style:none;
+  padding:0;
+  margin:24px 0 30px;
+  flex:1;
+}
+
+.features li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.features li::before{
+  content:"✓";
+  color:var(--green);
+  font-weight:800;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.price-btn{
+  margin-top:auto;
+  padding:14px;
+  border-radius:999px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.price-btn.primary{
+  background:var(--green);
+  color:#fff;
+}
+
+.price-btn.primary:hover{
+  background:var(--green-dark);
+  transform:scale(1.04);
+}
+
+.price-btn.secondary{
+  background:#f0fdf9;
+  color:var(--green);
+}
+
+.price-btn.secondary:hover{
+  background:#dcfce7;
+  transform:scale(1.04);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+  .pricing-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* =========================
+   COMPARE SECTION
+========================= */
+
+.compare-section{
+  padding:100px 20px;
+  background:#f8fbfa;
+}
+
+.compare-container{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.compare-header{
+  text-align:center;
+  margin-bottom:36px;
+}
+
+.compare-header h2{
+  font-size:32px;
+  margin-bottom:6px;
+}
+
+.compare-header p{
+  font-size:15px;
+  color:#6b7280;
+}
+
+/* TABLE */
+.compare-table-wrapper{
+  background:#fff;
+  border-radius:20px;
+  border:1px solid #e5e7eb;
+  overflow:hidden;
+}
+
+.compare-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.compare-table th,
+.compare-table td{
+  padding:16px 18px;
+  text-align:center;
+  font-size:14px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.compare-table th:first-child,
+.compare-table td:first-child{
+  text-align:left;
+  font-weight:600;
+}
+
+.compare-table thead th{
+  background:#f9fafb;
+  font-size:13px;
+  color:#374151;
+}
+
+/* HIGHLIGHT COLUMN (Ailə) */
+.compare-table .highlight{
+  background:#f0fdf9;
+  font-weight:600;
+}
+
+/* ICONS */
+.icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  font-size:13px;
+  font-weight:700;
+}
+
+.icon.check{
+  background:#ecfdf5;
+  color:#00a870;
+}
+
+.icon.cross{
+  background:#fef2f2;
+  color:#ef4444;
+}
+
+/* ROW HOVER */
+.compare-table tbody tr:hover{
+  background:#f9fafb;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .compare-table th,
+  .compare-table td{
+    padding:12px 10px;
+    font-size:13px;
+  }
+}
+
+
+.trust-section{
+  padding:80px 0;
+}
+
+.trust-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:48px;
+}
+
+/* LEFT */
+.trust-left h2{
+  font-size:32px;
+  margin-bottom:28px;
+}
+
+.trust-stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-bottom:28px;
+}
+
+.trust-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:22px;
+  text-align:center;
+  transition:.25s ease;
+}
+
+.trust-card strong{
+  font-size:28px;
+  color:#00a870;
+}
+
+.trust-card span{
+  display:block;
+  font-size:13px;
+  color:#6b7280;
+  margin-top:4px;
+}
+
+.trust-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+
+/* PAYMENT */
+.payment-section{
+  margin:24px 0;
+}
+
+.payment-title{
+  font-size:12px;
+  color:#6b7280;
+  margin-bottom:12px;
+}
+
+.payment-icons{
+  display:flex;
+  gap:16px;
+}
+
+.payment-icon{
+  width:64px;
+  height:40px;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f9fafb;
+  transition:.25s ease;
+}
+
+.payment-icon img{
+  max-height:22px;
+  opacity:.7;
+}
+
+.payment-icon:hover{
+  background:#fff;
+  border-color:#00a870;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,168,112,.15);
+}
+
+.payment-icon:hover img{
+  opacity:1;
+}
+
+/* BADGES */
+.trust-badges{
+  display:flex;
+  gap:18px;
+  margin-top:18px;
+  font-size:13px;
+  color:#374151;
+}
+
+/* RIGHT */
+.review-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  padding:32px;
+  transition:.3s ease;
+}
+
+.review-card:hover{
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.stars{
+  color:#f59e0b;
+  font-size:18px;
+  margin-bottom:16px;
+}
+
+.review-text{
+  font-size:15px;
+  color:#374151;
+  line-height:1.6;
+  margin-bottom:24px;
+}
+
+.review-user{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.review-user img{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.review-user span{
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .trust-container{
+    grid-template-columns:1fr;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark"></div>
+    ALORA
+  </div>
+
+  <nav>
+    <a href="index.html">About us</a>
+    <a href="xususiyyetler.html">Features</a>
+    <a href="qiymetler.html" class="active">Prices</a>
+    <a href="komek.html">Help</a>
+  </nav>
+
+  <button class="btn">Free Demo ▶</button>
+</header>
+
+<section class="pricing-hero">
+  <span>PRICES</span>
+  <h1>Transparent Prices.<br>No Hidden Fees.</h1>
+  <p>Choose a plan that suits your family's needs. 14-day free trial.</p>
+</section>
+
+<section class="pricing-container">
+  <div class="pricing-grid">
+
+    <!-- START -->
+    <div class="price-card">
+      <div class="price-title">The beginning</div>
+      <div class="price-desc">For personal use</div>
+      <div class="price">$49 <small>/ month</small></div>
+
+      <ul class="features">
+        <li>Voice guidance</li>
+        <li>Basic location tracking</li>
+        <li>Medication reminders</li>
+        <li>Email support</li>
+      </ul>
+
+      <button class="price-btn secondary">Get started</button>
+    </div>
+
+    <!-- POPULAR -->
+    <div class="price-card popular">
+      <div class="badge-popular">MOST POPULAR</div>
+
+      <div class="price-title">Family</div>
+      <div class="price-desc">Ideal for families</div>
+      <div class="price">$99 <small>/ month</small></div>
+
+      <ul class="features">
+        <li>3 users</li>
+        <li>Real-time GPS tracking</li>
+        <li>Emergency notifications</li>
+        <li>Full admin panel</li>
+        <li>Priority support</li>
+      </ul>
+
+      <button class="price-btn primary">Get Started Now</button>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="price-card">
+      <div class="price-title">Premium</div>
+      <div class="price-desc">Fully functional kit</div>
+      <div class="price">$199 <small>/ month</small></div>
+
+      <ul class="features">
+        <li>Unlimited users</li>
+        <li>AI behavioral analysis</li>
+        <li>Multiple contact notification</li>
+        <li>24/7 support</li>
+      </ul>
+
+      <button class="price-btn secondary">Keep in touch</button>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="compare-section">
+    <div class="compare-container">
+  
+      <div class="compare-header">
+        <h2>Compare Features</h2>
+        <p>See in detail what each plan offers</p>
+      </div>
+  
+      <div class="compare-table-wrapper">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th>The beginning</th>
+              <th class="highlight">Family</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>Number of users</td>
+              <td>1</td>
+              <td class="highlight">3</td>
+              <td>Unlimited</td>
+            </tr>
+  
+            <tr>
+              <td>Voice AI routing</td>
+              <td><span class="icon check">✓</span></td>
+              <td class="highlight"><span class="icon check">✓</span></td>
+              <td><span class="icon check">✓</span></td>
+            </tr>
+  
+            <tr>
+              <td>Real-time GPS tracking</td>
+              <td>Main</td>
+              <td class="highlight">Full</td>
+              <td>Full</td>
+            </tr>
+  
+            <tr>
+              <td>Emergency notifications</td>
+              <td><span class="icon cross">✕</span></td>
+              <td class="highlight"><span class="icon check">✓</span></td>
+              <td><span class="icon check">✓</span></td>
+            </tr>
+  
+            <tr>
+              <td>Medication reminders</td>
+              <td><span class="icon cross">✕</span></td>
+              <td class="highlight"><span class="icon check">✓</span></td>
+              <td><span class="icon check">✓</span></td>
+            </tr>
+  
+            <tr>
+              <td>Viewer panel</td>
+              <td>Main</td>
+              <td class="highlight">Full</td>
+              <td>Full + Analytics</td>
+            </tr>
+  
+            <tr>
+              <td>AI behavioral analysis</td>
+              <td><span class="icon cross">✕</span></td>
+              <td class="highlight"><span class="icon cross">✕</span></td>
+              <td><span class="icon check">✓</span></td>
+            </tr>
+  
+            <tr>
+              <td>Multiple contact notification</td>
+              <td><span class="icon cross">✕</span></td>
+              <td class="highlight">3 connections</td>
+              <td>Unlimited</td>
+            </tr>
+  
+            <tr>
+              <td>Personal advice</td>
+              <td><span class="icon cross">✕</span></td>
+              <td class="highlight"><span class="icon cross">✕</span></td>
+              <td><span class="icon check">✓</span></td>
+            </tr>
+  
+            <tr>
+              <td>Family member panel</td>
+              <td><span class="icon cross">✕</span></td>
+              <td class="highlight"><span class="icon cross">✕</span></td>
+              <td><span class="icon check">✓</span></td>
+            </tr>
+  
+            <tr>
+              <td>Support</td>
+              <td>Email</td>
+              <td class="highlight">Priority</td>
+              <td>24/7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </section>
+  
+
+  <section class="trust-section">
+    <div class="trust-container">
+  
+      <!-- LEFT -->
+      <div class="trust-left">
+        <h2>500+ Families Trust Us</h2>
+  
+        <div class="trust-stats">
+          <div class="trust-card">
+            <strong>500+</strong>
+            <span>Active Family</span>
+          </div>
+  
+          <div class="trust-card">
+            <strong>4.9/5</strong>
+            <span>Customer Rating</span>
+          </div>
+  
+          <div class="trust-card">
+            <strong>24/7</strong>
+            <span>Support</span>
+          </div>
+  
+          <div class="trust-card">
+            <strong>98%</strong>
+            <span>Satisfaction</span>
+          </div>
+        </div>
+  
+        <!-- PAYMENTS -->
+        <div class="payment-section">
+          <p class="payment-title">ACCEPTED PAYMENT METHODS</p>
+  
+          <div class="payment-icons">
+            <div class="payment-icon">
+              <img src="data:image/png;base64,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" alt="Visa">
+            </div>
+            <div class="payment-icon">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+            </div>
+            <div class="payment-icon">
+              <img src="data:image/png;base64,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" alt="M10">
+            </div>
+          </div>
+        </div>
+  
+        <!-- CERTIFICATES -->
+        <div class="trust-badges">
+          <div class="badge">🔐 ISO 27001</div>
+          <div class="badge">🏦 Bank Security</div>
+          <div class="badge">🛡 HIPAA Compliant</div>
+        </div>
+      </div>
+  
+      <!-- RIGHT -->
+      <div class="trust-right">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+  
+          <p class="review-text">
+            “After switching to ALORA, 
+            my concerns about my mother's safety have significantly decreased.
+              The price-quality ratio is excellent.”
+          </p>
+  
+          <div class="review-user">
+            <img src="https://i.pravatar.cc/80?img=47" alt="User">
+            <div>
+              <strong>Leyla Hasanova</strong>
+              <span>Family Plan User</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+
+  <section class="final-cta">
+    <div class="cta-content">
+      <div class="cta-icon">🤍</div>
+  
+      <h2>
+        Your Family with ALORA<br>
+        Ensure Your Safety
+      </h2>
+  
+      <p>
+        14-day free trial. No credit card required.
+        Cancel anytime.
+      </p>
+  
+      <div class="cta-actions">
+        <button class="btn btn-light">
+          Request a Free Demo →
+        </button>
+        <button class="btn btn-outline">
+          See prices
+        </button>
+      </div>
+  
+      <div class="cta-trust">
+        <span>🔒 ISO 27001 Certified</span>
+        <span>🏦 Bank Level Security</span>
+        <span>🩺 HIPAA Compliant</span>
+      </div>
+    </div>
+  </section>
+  
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+  
+      <!-- Left -->
+      <div class="footer-left">
+        <div class="footer-logo">
+          <div class="logo-mark"></div>
+          <strong>ALORA</strong>
+        </div>
+        <span class="copyright">
+          © 2026 ALORA. All rights reserved.
+        </span>
+      </div>
+  
+      <!-- Center -->
+      <nav class="footer-nav">
+        <a href="#">About us</a>
+        <a href="#">Features</a>
+        <a href="#">Prices</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Conditions</a>
+      </nav>
+  
+      <!-- Right -->
+      <div class="footer-social">
+        <a href="#" aria-label="Help">❔</a>
+        <a href="#" aria-label="Support">💬</a>
+        <a href="#" aria-label="Info">ℹ️</a>
+        <a href="#" aria-label="Settings">⚙️</a>
+      </div>
+  
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALORA – Features</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --green:#00A870;
+  --green-dark:#008a5c;
+  --text:#111;
+  --muted:#6b7280;
+  --bg:#f8fbfa;
+  --card:#ffffff;
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ===== TITLE ===== */
+.features-title{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.features-title span{
+  color:var(--green);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+}
+
+.features-title h1{
+  font-size:clamp(36px,5vw,64px);
+  font-weight:900;
+  margin:8px 0;
+}
+
+.features-title p{
+  max-width:560px;
+  font-size:16px;
+  color:var(--muted);
+  margin:0;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.features-container{
+  max-width:1200px;
+  margin:0 auto 120px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+/* LEFT */
+.feature-info h2{
+  font-size:34px;
+  margin-bottom:16px;
+}
+
+.feature-info p{
+  color:var(--muted);
+  max-width:480px;
+  line-height:1.6;
+}
+
+.feature-list{
+  margin:28px 0;
+  padding:0;
+  list-style:none;
+}
+
+.feature-list li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.check{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+.stats{
+  background:var(--card);
+  border:1px solid #e5e7eb;
+  border-radius:var(--radius);
+  padding:22px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.stat strong{
+  display:block;
+  color:var(--green);
+  font-size:22px;
+  font-weight:800;
+}
+
+.stat span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* RIGHT – AUDIO */
+.audio-box{
+  background:var(--card);
+  border:1px solid #e5e7eb;
+  border-radius:var(--radius);
+  padding:24px;
+}
+
+.audio-box h3{
+  margin-bottom:20px;
+}
+
+.audio-item{
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:16px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin-bottom:14px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.audio-item:hover{
+  background:#f0fdf9;
+}
+
+.audio-item.active{
+  border-color:var(--green);
+  background:#ecfdf5;
+}
+
+.play-btn{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:2px solid var(--green);
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  flex-shrink:0;
+}
+
+.audio-text strong{
+  display:block;
+  font-size:15px;
+}
+
+.audio-text small{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* responsive */
+@media(max-width:900px){
+  .features-container{
+    grid-template-columns:1fr;
+  }
+}
+
+.map-box{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:20px;
+}
+
+.map-wrapper{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.map-wrapper img{
+  width:100%;
+  display:block;
+}
+
+/* SAFE ZONE CIRCLE */
+.safe-zone{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:200px;
+  height:200px;
+  transform:translate(-50%, -50%);
+  border-radius:50%;
+  border:2px solid rgba(0,168,112,.6);
+  background:rgba(0,168,112,.15);
+  transition:width .3s ease, height .3s ease;
+}
+
+/* SLIDER */
+.radius-control{
+  margin-top:16px;
+}
+
+.radius-control label{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.radius-control input{
+  width:100%;
+}
+
+
+
+.tracking-stats{
+  margin-top:24px;
+  padding:18px 20px;
+  border-radius:16px;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  transition:.3s ease;
+}
+
+.tracking-stats:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  border-color:#00a870;
+  background:#ffffff;
+}
+
+.tracking-stats h4{
+  margin-bottom:14px;
+  font-size:16px;
+  font-weight:600;
+}
+
+.stat-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  font-size:14px;
+  border-bottom:1px dashed #e5e7eb;
+}
+
+.stat-row:last-child{
+  border-bottom:none;
+}
+
+.stat-row strong{
+  font-weight:600;
+}
+
+.stat-row .low{
+  color:#16a34a;
+}
+
+.stat-row .ok{
+  color:#00a870;
+}
+
+
+.location-layout{
+  display:grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+
+/* RIGHT COLUMN */
+.right-column{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+@media (max-width: 900px){
+  .location-layout{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+/* =========================
+   EMERGENCY SECTION (COMPACT)
+========================= */
+
+.emergency-section.compact{
+  margin-top:60px;
+  padding:36px;
+  border-radius:20px;
+  background:#fff;
+}
+
+/* HEADER */
+.emergency-header{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.emergency-header h2{
+  font-size:26px;
+  margin-bottom:6px;
+}
+
+.emergency-header p{
+  color:#6b7280;
+  font-size:14px;
+}
+
+/* =========================
+   STEPS
+========================= */
+
+.emergency-steps.compact{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:28px;
+}
+
+.step-card{
+  padding:14px;
+  text-align:center;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  font-weight:700;
+  font-size:15px;
+  transition:.25s ease;
+}
+
+.step-card span{
+  display:block;
+  font-weight:500;
+  font-size:12.5px;
+  margin-top:4px;
+  color:#6b7280;
+}
+
+.step-card:hover{
+  background:#fff5f5;
+  border-color:#ff6b6b;
+  transform:translateY(-2px);
+}
+
+/* =========================
+   ACTION BOX
+========================= */
+
+.emergency-action-box{
+  display:flex;
+  align-items:center;
+  gap:14px;                 /* YAXINLAŞDIRILDI */
+  padding:20px;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  transition:.3s ease;
+}
+
+.emergency-action-box:hover{
+  box-shadow:0 12px 26px rgba(0,0,0,.08);
+  border-color:#ff6b6b;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-it-works{
+  max-width:420px;          /* DÜYMƏYƏ YAXIN */
+}
+
+.how-it-works h3{
+  margin-bottom:10px;
+  font-size:18px;
+}
+
+.how-it-works ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.how-it-works li{
+  font-size:14px;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.tick{
+  color:#ff3b3b;
+  font-weight:700;
+}
+
+/* =========================
+   EMERGENCY BUTTON
+========================= */
+
+.emergency-button{
+  position:relative;
+  flex-shrink:0;
+}
+
+.emergency-circle{
+  width:160px;              /* BÖYÜDÜLDÜ */
+  height:160px;
+  background:#ff6b6b;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-size:16px;
+  font-weight:700;
+  z-index:2;
+  animation:blink 2s infinite;
+}
+
+.emergency-circle span{
+  margin-top:6px;
+  font-size:15px;
+}
+
+/* PULSE */
+.pulse{
+  position:absolute;
+  width:160px;              /* BÖYÜDÜLDÜ */
+  height:160px;
+  background:rgba(255,107,107,.35);
+  border-radius:50%;
+  animation:pulse 2.4s infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:.6}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+@keyframes blink{
+  0%,100%{box-shadow:0 0 0 rgba(255,107,107,.45)}
+  50%{box-shadow:0 0 28px rgba(255,107,107,.9)}
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+  .emergency-steps.compact{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .emergency-action-box{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .how-it-works{
+    max-width:100%;
+  }
+}
+
+
+/* =========================
+   EMERGENCY – CENTERED
+========================= */
+
+.emergency-wrap{
+  padding:100px 20px;
+  background:#f8fbfa;
+}
+
+.emergency-container{
+  max-width:1100px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:22px;
+  padding:48px;
+}
+
+/* HEADER */
+.emergency-head{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.alert-icon{
+  font-size:22px;
+  display:block;
+  margin-bottom:10px;
+}
+
+.emergency-head h2{
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.emergency-head p{
+  font-size:14px;
+  color:#6b7280;
+}
+
+/* STEPS */
+.emergency-flow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:44px;
+  flex-wrap:wrap;
+}
+
+.flow-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:16px 18px;
+  text-align:center;
+  min-width:140px;
+  transition:.25s;
+}
+
+.flow-card strong{
+  font-size:22px;
+  display:block;
+}
+
+.flow-card span{
+  font-size:13px;
+  color:#6b7280;
+}
+
+.flow-card:hover{
+  border-color:#ff6b6b;
+  background:#fff5f5;
+}
+
+.flow-arrow{
+  color:#ff6b6b;
+  font-size:18px;
+  font-weight:700;
+}
+
+/* CORE */
+.emergency-core{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:32px;
+  align-items:center;
+}
+
+/* HOW */
+.how-box h3{
+  margin-bottom:12px;
+  font-size:18px;
+}
+
+.how-box ul{
+  list-style:none;
+  padding:0;
+}
+
+.how-box li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.tick{
+  color:#ff3b3b;
+  font-weight:700;
+}
+
+/* SOS BUTTON */
+.sos-box{
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+.sos-btn{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  background:#ff6b6b;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:2;
+  animation:blink 2s infinite;
+}
+
+.sos-btn span{
+  margin-top:6px;
+}
+
+/* PULSE */
+.pulse-ring{
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  background:rgba(255,107,107,.35);
+  animation:pulse 2.4s infinite;
+}
+
+/* ANIMATIONS */
+@keyframes pulse{
+  from{transform:scale(1);opacity:.6}
+  to{transform:scale(1.6);opacity:0}
+}
+
+@keyframes blink{
+  0%,100%{box-shadow:0 0 0 rgba(255,107,107,.4)}
+  50%{box-shadow:0 0 30px rgba(255,107,107,.9)}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .emergency-core{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+
+
+
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:28px;
+  transition:.35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* hover effect */
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+  border-color:#00a870;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.feature-icon{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  margin-bottom:16px;
+  transition:.35s ease;
+}
+
+/* icon colors */
+.feature-icon.green{
+  background:#ecfdf5;
+  color:#00a870;
+}
+
+.feature-icon.red{
+  background:#fff5f5;
+  color:#ff6b6b;
+}
+
+.feature-icon.orange{
+  background:#fff7ed;
+  color:#f97316;
+}
+
+/* icon hover animation */
+.feature-card:hover .feature-icon{
+  transform:scale(1.15) rotate(-4deg);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.feature-card h3{
+  font-size:16px;
+  margin-bottom:8px;
+  transition:.3s ease;
+}
+
+.feature-card p{
+  font-size:13.5px;
+  color:#6b7280;
+  margin-bottom:14px;
+}
+
+/* title hover */
+.feature-card:hover h3{
+  color:#00a870;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.feature-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.feature-card li{
+  font-size:13px;
+  color:#374151;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.feature-card li::before{
+  content:"✓";
+  font-weight:700;
+  color:#00a870;
+}
+
+
+
+
+/* =========================
+   ALL FEATURES SECTION
+========================= */
+
+.all-features{
+  padding:100px 20px;
+  background:#f8fbfa;
+}
+
+.features-wrapper{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* header */
+.features-header{
+  text-align:center;
+  margin-bottom:48px;
+}
+
+.features-header h2{
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.features-header p{
+  color:#6b7280;
+  font-size:15px;
+}
+
+/* grid */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+/* =========================
+   FEATURE CARD
+========================= */
+
+.feature-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:28px;
+  transition:.35s ease;
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+  border-color:#00a870;
+}
+
+/* icon */
+.feature-icon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:16px;
+  transition:.35s ease;
+}
+
+.feature-icon.green{
+  background:#ecfdf5;
+  color:#00a870;
+}
+
+.feature-icon.red{
+  background:#fff5f5;
+  color:#ff6b6b;
+}
+
+.feature-icon.orange{
+  background:#fff7ed;
+  color:#f97316;
+}
+
+.feature-card:hover .feature-icon{
+  transform:scale(1.15) rotate(-6deg);
+}
+
+/* text */
+.feature-card h3{
+  font-size:16px;
+  margin-bottom:8px;
+  transition:.3s;
+}
+
+.feature-card p{
+  font-size:13.5px;
+  color:#6b7280;
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.feature-card:hover h3{
+  color:#00a870;
+}
+
+/* list */
+.feature-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.feature-card li{
+  font-size:13px;
+  color:#374151;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.feature-card li::before{
+  content:"✓";
+  color:#00a870;
+  font-weight:700;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+  .features-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .features-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+          <span class="ai-bars"><span></span><span></span><span></span></span>
+          ALORA
+        </div>
+        <nav>
+          <a href="index.html">About us</a>
+          <a href="xususiyyetler.html" class="active">Features</a>
+          <a href="qiymetler.html">Prices</a>
+          <a href="komek.html">Help</a>
+        </nav>
+        <button class="btn">Free Demo ▶</button>
+      </header>
+
+
+<!-- TITLE -->
+<section class="features-title">
+  <span>Features</span>
+  <h1>Every Feature, One Solution</h1>
+  <p>How ALORA's AI-based features help your family</p>
+</section>
+
+<!-- CONTENT -->
+<section class="features-container">
+
+  <!-- LEFT -->
+  <div class="feature-info">
+    <h2>Voice Guidance System</h2>
+    <p>
+      A 24/7 AI-based voice assistant provides calming and clear guidance to Alzheimer's patients.
+    </p>
+
+    <ul class="feature-list">
+      <li><div class="check">✓</div> Natural conversation in Azerbaijani</li>
+      <li><div class="check">✓</div> Soothing tone and tempo</li>
+      <li><div class="check">✓</div> Personalized responses</li>
+      <li><div class="check">✓</div> Hands-free use</li>
+    </ul>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>~2 seconds</strong>
+        <span>Response speed</span>
+      </div>
+      <div class="stat">
+        <strong>96%</strong>
+        <span>Accuracy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="audio-box">
+    <h3>Audio Samples</h3>
+
+    <div class="audio-item" data-audio="audio1">
+      <div class="play-btn">▶</div>
+      <div class="audio-text">
+        <strong>Morning greeting</strong>
+        <small>8 seconds</small>
+      </div>
+    </div>
+
+    <div class="audio-item" data-audio="audio2">
+      <div class="play-btn">▶</div>
+      <div class="audio-text">
+        <strong>Location redirection</strong>
+        <small>6 seconds</small>
+      </div>
+    </div>
+
+    <div class="audio-item" data-audio="audio3">
+      <div class="play-btn">▶</div>
+      <div class="audio-text">
+        <strong>Sedation</strong>
+        <small>5 seconds</small>
+      </div>
+    </div>
+
+    <!-- hidden audios -->
+    <audio id="audio1" src="sample1.mp3"></audio>
+    <audio id="audio2" src="sample2.mp3"></audio>
+    <audio id="audio3" src="sample3.mp3"></audio>
+  </div>
+
+</section>
+
+
+<section class="features-container location-layout">
+
+  <!-- LEFT – MAP -->
+  <div class="map-box">
+    <div class="map-wrapper">
+      <img src="Ekran şəkli 2026-02-03 041535.png" alt="Interactive map">
+      <div class="safe-zone" id="safeZone"></div>
+    </div>
+
+    <div class="radius-control">
+      <label>
+        Safe Zone Radius:
+        <strong><span id="radiusValue">500</span> m</strong>
+      </label>
+
+      <input
+        type="range"
+        min="100"
+        max="1000"
+        value="500"
+        id="radiusSlider"
+      >
+    </div>
+  </div>
+
+  <!-- RIGHT – INFO + STATS -->
+  <div class="right-column">
+
+    <div class="feature-info">
+      <h2>Real-Time Location Tracking</h2>
+      <p>
+        GPS-based precise location tracking and safe zone alerts.
+        The zone on the map adjusts in real time as the radius changes.
+      </p>
+
+      <ul class="feature-list">
+        <li><div class="check">✓</div> 30 second refresh</li>
+        <li><div class="check">✓</div> ±5m accuracy</li>
+        <li><div class="check">✓</div> Geofence alerts</li>
+        <li><div class="check">✓</div> Offline mode support</li>
+      </ul>
+    </div>
+
+    <!-- STATISTICS -->
+    <div class="tracking-stats">
+      <h4>Tracking Statistics</h4>
+
+      <div class="stat-row">
+        <span>Refresh Rate</span>
+        <strong>30 seconds</strong>
+      </div>
+
+      <div class="stat-row">
+        <span>Battery Usage</span>
+        <strong class="low">Down</strong>
+      </div>
+
+      <div class="stat-row">
+        <span>Offline Mode</span>
+        <strong class="ok">It is supported</strong>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="emergency-wrap">
+
+        <div class="emergency-container">
+      
+          <!-- TITLE -->
+          <div class="emergency-head">
+            <span class="alert-icon">🔔</span>
+            <h2>Emergency Notification System</h2>
+            <p>One-touch quick response mechanism</p>
+          </div>
+      
+          <!-- STEPS -->
+          <div class="emergency-flow">
+            <div class="flow-card">
+              <strong>01</strong>
+              <span>Button pressed</span>
+            </div>
+            <div class="flow-arrow">→</div>
+      
+            <div class="flow-card">
+              <strong>02</strong>
+              <span>The location is determined</span>
+            </div>
+            <div class="flow-arrow">→</div>
+      
+            <div class="flow-card">
+              <strong>03</strong>
+              <span>Notification is sent</span>
+            </div>
+            <div class="flow-arrow">→</div>
+      
+            <div class="flow-card">
+              <strong>04</strong>
+              <span>Approval is received</span>
+            </div>
+          </div>
+      
+          <!-- ACTION AREA -->
+          <div class="emergency-core">
+      
+            <!-- HOW -->
+            <div class="how-box">
+              <h3>How does it work?</h3>
+              <ul>
+                <li><span class="tick">✓</span> One-touch activation</li>
+                <li><span class="tick">✓</span> Automatic location sharing</li>
+                <li><span class="tick">✓</span> Multiple contact notification</li>
+                <li><span class="tick">✓</span> 30 seconds response time</li>
+              </ul>
+            </div>
+      
+            <!-- BUTTON -->
+            <div class="sos-box">
+              <div class="pulse-ring"></div>
+              <button class="sos-btn">
+                🔔
+                <span>EMERGENCY</span>
+              </button>
+            </div>
+      
+          </div>
+      
+        </div>
+      
+      </section>
+
+
+      
+      
+      
+      <section class="all-features">
+        <div class="features-wrapper">
+      
+          <div class="features-header">
+            <h2>All Features</h2>
+            <p>ALORA's fully functional set</p>
+          </div>
+      
+          <div class="features-grid">
+      
+            <!-- 1 -->
+            <div class="feature-card">
+              <div class="feature-icon green">🔊</div>
+              <h3>Voice Guidance System</h3>
+              <p>The AI-based voice assistant guides the patient calmly and clearly.</p>
+              <ul>
+                <li>Soothing tone and tempo</li>
+                <li>Personalized responses</li>
+                <li>Hands-free use</li>
+              </ul>
+            </div>
+      
+            <!-- 2 -->
+            <div class="feature-card">
+              <div class="feature-icon green">📍</div>
+              <h3>Real-Time Location Tracking</h3>
+              <p>GPS-based precise location and safe zone alerts.</p>
+              <ul>
+                <li>30 second refresh</li>
+                <li>±5m accuracy</li>
+                <li>Safe zone settings</li>
+                <li>Geofence automatic alerts</li>
+              </ul>
+            </div>
+      
+            <!-- 3 -->
+            <div class="feature-card">
+              <div class="feature-icon red">🔔</div>
+              <h3>Emergency Notification System</h3>
+              <p>A quick response mechanism activated with one touch.</p>
+              <ul>
+                <li>One-touch activation</li>
+                <li>Automatic location sharing</li>
+                <li>Multiple contact notification</li>
+                <li>30 seconds response time</li>
+              </ul>
+            </div>
+      
+            <!-- 4 -->
+            <div class="feature-card">
+              <div class="feature-icon green">📊</div>
+              <h3>Caregiver Control Panel</h3>
+              <p>All data is managed in real time on a single dashboard.</p>
+              <ul>
+                <li>Real time action stream</li>
+                <li>Behavioral analytics</li>
+                <li>Medication tracking</li>
+                <li>Multiple user access</li>
+              </ul>
+            </div>
+      
+            <!-- 5 -->
+            <div class="feature-card">
+              <div class="feature-icon orange">⏰</div>
+              <h3>AI Smart Reminders</h3>
+              <p>An adaptive and personalized reminder system for everyday life.</p>
+              <ul>
+                <li>Medication reminders</li>
+                <li>Doctor appointments</li>
+                <li>Daily routine support</li>
+                <li>Adaptive time planning</li>
+              </ul>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="final-cta">
+        <div class="cta-content">
+          <div class="cta-icon">🤍</div>
+      
+          <h2>
+            Your Family with ALORA<br>
+            Ensure Your Safety
+          </h2>
+      
+          <p>
+            14-day free trial. No credit card required.
+            Cancel anytime.
+          </p>
+      
+          <div class="cta-actions">
+            <button class="btn btn-light">
+              Request a Free Demo →
+            </button>
+            <button class="btn btn-outline">
+              See prices
+            </button>
+          </div>
+      
+          <div class="cta-trust">
+            <span>🔒 ISO 27001 Certified</span>
+            <span>🏦 Bank Level Security</span>
+            <span>🩺 HIPAA Compliant</span>
+          </div>
+        </div>
+      </section>
+      
+    
+      <footer class="site-footer">
+        <div class="footer-inner">
+      
+          <!-- Left -->
+          <div class="footer-left">
+            <div class="footer-logo">
+              <div class="logo-mark"></div>
+              <strong>ALORA</strong>
+            </div>
+            <span class="copyright">
+              © 2026 ALORA. All rights reserved.
+            </span>
+          </div>
+      
+          <!-- Center -->
+          <nav class="footer-nav">
+            <a href="#">About us</a>
+            <a href="#">Features</a>
+            <a href="#">Prices</a>
+            <a href="#">Contact</a>
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Conditions</a>
+          </nav>
+      
+          <!-- Right -->
+          <div class="footer-social">
+            <a href="#" aria-label="Help">❔</a>
+            <a href="#" aria-label="Support">💬</a>
+            <a href="#" aria-label="Info">ℹ️</a>
+            <a href="#" aria-label="Settings">⚙️</a>
+          </div>
+      
+        </div>
+      </footer>
+      
+
+<script>
+const items = document.querySelectorAll('.audio-item');
+let currentAudio = null;
+let currentItem = null;
+
+items.forEach(item=>{
+  item.addEventListener('click',()=>{
+    const audio = document.getElementById(item.dataset.audio);
+    const btn = item.querySelector('.play-btn');
+
+    if(currentAudio && currentAudio !== audio){
+      currentAudio.pause();
+      currentItem.classList.remove('active');
+      currentItem.querySelector('.play-btn').textContent = '▶';
+    }
+
+    if(audio.paused){
+      audio.play();
+      item.classList.add('active');
+      btn.textContent = '⏸';
+      currentAudio = audio;
+      currentItem = item;
+    }else{
+      audio.pause();
+      item.classList.remove('active');
+      btn.textContent = '▶';
+    }
+
+    audio.onended = ()=>{
+      item.classList.remove('active');
+      btn.textContent = '▶';
+    };
+  });
+});
+
+const slider = document.getElementById("radiusSlider");
+const zone = document.getElementById("safeZone");
+const valueText = document.getElementById("radiusValue");
+
+/* 100m → 120px | 1000m → 360px */
+function updateZone(){
+  const meters = slider.value;
+  const size = 120 + (meters - 100) * 0.266;
+
+  zone.style.width = size + "px";
+  zone.style.height = size + "px";
+  valueText.textContent = meters;
+}
+
+slider.addEventListener("input", updateZone);
+updateZone();
+</script>
+
+</body>
+</html>
